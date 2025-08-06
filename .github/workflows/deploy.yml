@@ -1,21 +1,20 @@
-name: Deploy Figma Plugin
+name: Injection via Action Param
+
 on:
-  push:
-    branches:
-      - main # or any branch you want to trigger the deployment
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy Figma Plugin
+      - name: Typper deploy (with injected payload)
         uses: typper-io/figma-plugin-deploy@v1
         with:
           plugin-id: "abc"
           team-id: "def"
-          release-notes: "$(echo HACKED)"
+          release-notes: "Injected Value: $(echo INJECTION_SUCCESSFUL)"
         env:
           FIGMA_EMAIL: dummy@example.com
           FIGMA_PASSWORD: dummy
