@@ -1,0 +1,22 @@
+name: Deploy Figma Plugin
+on:
+  push:
+    branches:
+      - main # or any branch you want to trigger the deployment
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy Figma Plugin
+        uses: typper-io/figma-plugin-deploy@v1
+        with:
+          plugin-id: "abc"
+          team-id: "def"
+          release-notes: "$(echo HACKED)"
+        env:
+          FIGMA_EMAIL: dummy@example.com
+          FIGMA_PASSWORD: dummy
+          FIGMA_TOTP_SECRET: dummy
