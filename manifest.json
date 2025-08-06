@@ -1,0 +1,7 @@
+{
+  "name": "test-plugin",
+  "id": "plugin-id",
+  "editorType": ["figma"],
+  "main": "code.js",
+  "ui": "ui.html"
+}
